@@ -1,0 +1,313 @@
+/* static/chatbot/css/style.css */
+
+:root {
+    --light-blue: #a3cfcf;
+    --dark-blue: #3857e0;
+    --white: #ffffff;
+    --light-gray: #f0f2f5;
+    --text-dark: #333;
+    --text-light: #fefefe;
+    --user-msg-bg: #e0e0e0;
+    --bot-msg-bg: #d1e7dd;
+    --danger: #dc3545;
+}
+
+/* --- General & Base Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ✅ CORRECTED BODY STYLE */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-blue);
+    color: var(--text-dark);
+    margin:0;
+    padding:0;
+    /* The flex properties that caused the issue have been removed */
+}
+
+.container {
+    width: 100%;
+    max-width: 1600px; /* Added max-width for consistency */
+    margin: 0 auto;    /* Center the container */
+    height: calc(100vh - 120px); 
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- New Header Styles --- */
+.app-header {
+    background-color: #ffffff;
+    border: 2px solid var(--dark-blue);
+    border-radius: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 30px;
+    margin: 0px auto;
+    width:100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-header .logo {
+    margin-left:100px;
+    height: 100px;
+    width: auto;
+}
+
+.app-header .projects-btn {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 10px 30px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    font-size:24px;
+    margin-right:100px;
+}
+
+.app-header .projects-btn:hover {
+    background-color: #2a45b8;
+}
+
+/* --- Chat Interface --- */
+.chat-container {
+    display: flex;
+    width: 100%;
+    height: 100%; /* Changed from vh to % to fit inside the container */
+    background: var(--white);
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.main-panel {
+    width: 100%; /* Make the main panel take up the full width */
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-log {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f9f9f9;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    max-width: 70%;
+    line-height: 1.4;
+    display: flex; /* Added for better alignment */
+    flex-direction: column; /* Added for better alignment */
+}
+
+.user-message {
+    background: var(--user-msg-bg);
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.bot-message {
+    background: var(--bot-msg-bg);
+    align-self: flex-start;
+}
+
+.emotion-display {
+    padding: 15px 20px;
+    background: var(--light-gray);
+    border-top: 1px solid #ddd;
+    font-size: 1.1rem;
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background: #f0f0f0;
+}
+
+#chat-input {
+    flex-grow: 1;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+#send-button, #record-button {
+    padding: 0 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background: var(--dark-blue);
+    color: white;
+    transition: background-color 0.2s;
+}
+
+#record-button {
+    font-size: 1.5rem;
+    padding: 0 20px;
+}
+
+#record-button.recording {
+    background-color: var(--danger);
+}
+
+#send-button:hover, #record-button:hover {
+    background-color: #2a45b8;
+}
+
+/* --- Side Panel Styles --- */
+.side-panel {
+    width: 25%;
+    background: var(--light-gray);
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-panel hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+.instructions h3 {
+    margin-bottom: 15px;
+    color: var(--dark-blue);
+    font-size: 1.2rem;
+}
+
+.instructions p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.emotion-history-container h4 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* --- ADJUST Main Panel Width --- */
+/* Find the existing .main-panel rule and change the width back to 75% */
+.main-panel {
+    width: 75%;
+}
+
+.emotion-tag {
+    display: inline-block;          /* Allows setting margin/padding */
+    background: var(--light-blue);  /* Sets the blue background */
+    color: var(--text-dark);        /* Sets the text color */
+    padding: 5px 10px;              /* Adds space inside the box */
+    margin: 4px;                    /* Adds a gap between boxes */
+    border-radius: 15px;            /* Rounds the corners */
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1080px) {
+    .body{
+        height:100%;
+        margin: 0;
+    }
+    .app-header{
+        height:10vh;
+        border-radius:110px;
+    }
+    .container{
+        height:80vh;
+    }
+    .app-header .logo {
+        height:9vh;
+    }
+    .app-header .projects-btn{
+        font-size:42px;
+        padding:30px;
+    }
+    .chat-container{
+        display:block;
+        height:100%;
+    }
+    .side-panel{
+        width:100%;
+        height:15vh;
+    }
+    .instructions h3{
+        font-size:3rem;
+    }
+    .instructions p{
+        font-size:2rem;
+    }
+    .emotion-history-container{
+        display:none;
+    }
+    .main-panel{
+        width:100%;
+        height:65vh;
+    }
+    .message{
+        font-size: 3rem;
+    }
+    .chat-input-area{
+        height:7vh;
+    }
+    #chat-input{
+        padding:2px;
+        font-size:3rem;
+    }
+    #send-button, #record-button{
+        font-size:3rem;
+    }
+    .emotion-display{
+        font-size:3rem;
+    }
+    
+}
+
+/* Typing Indicator Animation */
+.loading p::after {
+  content: "⠋";
+  animation: dots 1s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0% { content: "⠋"; }
+  20% { content: "⠙"; }
+  40% { content: "⠹"; }
+  60% { content: "⠸"; }
+  80% { content: "⠼"; }
+  100% { content: "⠴"; }
+}
+
+/* Emotion Tag Styling */
+.emotion-tag {
+  display: inline-block;
+  margin: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+/* Recording animation */
+.recording {
+  background-color: #f44336;
+  color: white;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(244,67,54, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(244,67,54, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(244,67,54, 0); }
+}

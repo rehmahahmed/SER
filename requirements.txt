@@ -1,0 +1,6 @@
+Django>=5.0
+numpy>=1.26
+librosa>=0.10.1
+soundfile>=0.12.1
+pydub>=0.25.1
+SpeechRecognition>=3.10.0

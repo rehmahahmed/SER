@@ -1,0 +1,30 @@
+ser_chatbot/
+├── ser_chatbot/          # Project configuration
+│   ├── settings.py
+│   └── urls.py
+├── chatbot/              # Our main application
+│   ├── migrations/
+│   ├── static/           # For CSS, JavaScript, images
+│   │   └── chatbot/
+│   │       ├── css/style.css
+│   │       ├── js/chat.js
+│   │       └── images/ (copy all your original images here)
+│   ├── templates/        # HTML files
+│   │   └── chatbot/
+│   │       ├── base.html
+│   │       ├── chat.html
+│   │       ├── index.html
+│   │       ├── login.html
+│   │       └── signup.html
+│   ├── admin.py
+│   ├── models.py
+│   ├── urls.py
+│   ├── views.py
+│   └── utils.py          # Ported logic for SER and chatbot
+├── manage.py
+└── model1.pkl            # Your trained emotion recognition model
+
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py runserver

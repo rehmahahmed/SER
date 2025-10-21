@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SER Assistant</title>
+    <link rel="stylesheet" href="{% static 'chatbot/css/style.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'chatbot/images/Rlogo - SERS.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="app-header">
+        <img src="{% static 'chatbot/images/Rlogo - SERS.png' %}" alt="Logo" class="logo">
+        <a href="http://rehmahprojects.com" target="_blank" class="projects-btn">More Projects</a>
+    </header>
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

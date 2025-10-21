@@ -1,0 +1,36 @@
+{% extends 'chatbot/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="chat-container">
+    <div class="side-panel">
+        <div class="instructions">
+            <h3>Instructions</h3>
+            <p>Press 🎤 to record your voice.</p>
+            <p>Press 🛑 to stop recording.</p>
+            <p>Wait a few seconds for emotion detection.</p>
+        </div>
+        <hr>
+        <div class="emotion-history-container">
+            <h4>Emotion History</h4>
+            <div id="emotion-history-panel" class="emotion-log"></div>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <div id="transcript" class="emotion-display">
+            Transcript: Awaiting input...
+        </div>
+
+        <div id="emotion-label" class="emotion-display">
+            Emotion: Awaiting voice input...
+        </div>
+
+        <div class="chat-input-area">
+            <button id="record-button">🎤</button>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'chatbot/js/chat.js' %}"></script>
+{% endblock %}
